@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:testingui/Widget.dart';
 import 'package:testingui/modules/Date-Time-Picker.dart';
+import 'package:testingui/modules/Firebase_Auth.dart';
 import 'package:testingui/modules/Get-data.dart';
 import 'package:testingui/modules/Grid_View.dart';
 import 'package:testingui/modules/Image_Picker.dart';
@@ -26,7 +27,7 @@ class homePage extends StatelessWidget {
                 title: customtext2("Get-Signup"),
                 onTap: () {
                   Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) => getData()));
+                      .push(MaterialPageRoute(builder: (context) => GetData()));
                 },
               ),
             ),
@@ -46,7 +47,7 @@ class homePage extends StatelessWidget {
                 title: customtext2("Date-TimePicker"),
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => dateTimePicker()));
+                      builder: (context) => DateTimePickerPage()));
                 },
               ),
             ),
@@ -66,7 +67,7 @@ class homePage extends StatelessWidget {
                 title: customtext2("GridView"),
                 onTap: () {
                   Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => gridView()));
+                      MaterialPageRoute(builder: (context) => GridViewPage()));
                 },
               ),
             ),
@@ -76,7 +77,7 @@ class homePage extends StatelessWidget {
                 title: customtext2("Listview Builder"),
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => listViewBuilder()));
+                      builder: (context) => listViewBuilderPage()));
                 },
               ),
             ),
@@ -85,11 +86,21 @@ class homePage extends StatelessWidget {
               child: ListTile(
                 title: customtext2("Webview"),
                 onTap: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) => webView()));
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => WebViewPage()));
                 },
               ),
-            )
+            ),
+            Card(
+              color: Colors.grey,
+              child: ListTile(
+                title: customtext2("Firebase Auth- Push Notification"),
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => FirebaseAuthPage()));
+                },
+              ),
+            ),
           ],
         )),
       ),

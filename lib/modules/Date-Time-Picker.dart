@@ -4,12 +4,12 @@ import 'package:testingui/Widget.dart';
 DateTime selectedDate = DateTime.now();
 TimeOfDay selectedTime = TimeOfDay.now();
 
-class dateTimePicker extends StatefulWidget {
+class DateTimePickerPage extends StatefulWidget {
   @override
   _dateTimePicker createState() => _dateTimePicker();
 }
 
-class _dateTimePicker extends State<dateTimePicker> {
+class _dateTimePicker extends State<DateTimePickerPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

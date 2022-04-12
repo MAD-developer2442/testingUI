@@ -17,6 +17,7 @@ dependencies:
   image_picker:
   webview_flutter:
   flutter_html:
+  firebase_messaging:
 
 dev_dependencies:
   flutter_test:

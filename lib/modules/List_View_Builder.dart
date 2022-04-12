@@ -4,14 +4,14 @@ import 'package:testingui/Widget.dart';
 
 final Number_controller = TextEditingController();
 
-class listViewBuilder extends StatefulWidget {
+class listViewBuilderPage extends StatefulWidget {
   @override
   _listViewBuilder createState() => _listViewBuilder();
 }
 
 int counter = 0;
 
-class _listViewBuilder extends State<listViewBuilder> {
+class _listViewBuilder extends State<listViewBuilderPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(

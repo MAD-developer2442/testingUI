@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:testingui/Widget.dart';
 
-class gridView extends StatelessWidget {
+class GridViewPage extends StatelessWidget {
+  const GridViewPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(

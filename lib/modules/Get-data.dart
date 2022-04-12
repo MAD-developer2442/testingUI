@@ -7,28 +7,28 @@ final Email_controller = TextEditingController();
 bool _showContainer = false;
 final userdata = GetStorage();
 
-class getData extends StatefulWidget {
+class GetData extends StatefulWidget {
   @override
-  State<getData> createState() => _getData();
+  State<GetData> createState() => _getData();
 }
 
-class _getData extends State<getData> {
+class _getData extends State<GetData> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: customtext1("Get Data"),centerTitle: true),
+      appBar: AppBar(title: customtext1("Get Data"), centerTitle: true),
       body: SafeArea(
         child: Column(
           children: [
             TextField(
               controller: Username_controller,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                   labelText: "Enter Username", hintText: "Username"),
             ),
             TextField(
               controller: Email_controller,
-              decoration:
-                  InputDecoration(labelText: "Enter Email", hintText: "Email"),
+              decoration: const InputDecoration(
+                  labelText: "Enter Email", hintText: "Email"),
             ),
             ButtonStyle1("Submit"),
             Visibility(

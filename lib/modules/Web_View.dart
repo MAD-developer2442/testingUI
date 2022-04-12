@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class webView extends StatefulWidget {
-  const webView({Key? key}) : super(key: key);
+class WebViewPage extends StatefulWidget {
 
   @override
-  State<webView> createState() => _WebViewAppState();
+  _WebViewAppState createState() => _WebViewAppState();
 }
 
-class _WebViewAppState extends State<webView> {
+class _WebViewAppState extends State<WebViewPage> {
   late WebViewController controller;
 
   @override

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "448131982885",
+    "project_id": "testingui-86174",
+    "storage_bucket": "testingui-86174.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:448131982885:android:ebe89baa2824086a4141cc",
+        "android_client_info": {
+          "package_name": "com.example.testingui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "448131982885-bla1kdt6fc4seom1ue6ireo2qql82e9l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.testingui",
+            "certificate_hash": "113a754a94b2df023fb8c0f97fae8bbd9bd0ead3"
+          }
+        },
+        {
+          "client_id": "448131982885-4ekf6t5j41430arvca8k6tefh1n9uopg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPYOL3RgHEp-M6zQvP0RZIUssca6NVhlQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "448131982885-4ekf6t5j41430arvca8k6tefh1n9uopg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
