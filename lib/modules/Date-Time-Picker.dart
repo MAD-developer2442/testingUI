@@ -16,32 +16,52 @@ class _dateTimePicker extends State<dateTimePicker> {
         appBar: AppBar(title: customtext1("Date/Time Picker")),
         body: SafeArea(
             child: Center(
-          child: Column(
+          child: Row(crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               GestureDetector(
                 onTap: () {
                   _selectDate(context);
                 },
-                child: Column(
-                  children: [
-                    Text(
-                        "${selectedDate.day}/${selectedDate.month}/${selectedDate.year}"),
-                  ],
+                child: Card(
+                  elevation: 10,
+                  child: Container(
+                    padding: EdgeInsets.all(10),
+                    width: 100,
+                    height: 125,
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          "images/Calendar.png",
+                        ),
+                        Text(
+                            "${selectedDate.day}/${selectedDate.month}/${selectedDate.year}"),
+                      ],
+                    ),
+                  ),
                 ),
               ),
               GestureDetector(
                 onTap: () {
                   _selectTime(context);
                 },
-                child: Column(
-                  children: [
-                    Image.asset(
-                      "images/img.png",
+                child: Card(
+                  elevation: 10,
+                  child: Container(
+                    padding: EdgeInsets.all(10),
+                    height: 125,
+                    width: 100,
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          "images/Timer.png",
+                        ),
+                        Text("${selectedTime.hour}:${selectedTime.minute}"),
+                      ],
                     ),
-                    Text("${selectedTime.hour}:${selectedTime.minute}"),
-                  ],
+                  ),
                 ),
-              ),
+              )
             ],
           ),
         )));
