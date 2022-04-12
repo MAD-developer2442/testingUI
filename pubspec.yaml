@@ -18,6 +18,9 @@ dependencies:
   webview_flutter:
   flutter_html:
   firebase_messaging:
+  flutter_local_notifications:
+  rxdart:
+
 
 dev_dependencies:
   flutter_test:

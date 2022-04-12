@@ -17,3 +17,12 @@ Widget customtext2(String txt) {
     ),
   );
 }
+
+Widget customtext3(String txt) {
+  return Text(
+    txt,
+    style: const TextStyle(
+      fontSize: 15,
+    ),
+  );
+}

@@ -7,6 +7,8 @@ import 'package:testingui/modules/Grid_View.dart';
 import 'package:testingui/modules/Image_Picker.dart';
 import 'package:testingui/modules/List_View.dart';
 import 'package:testingui/modules/List_View_Builder.dart';
+import 'package:testingui/modules/Notification.dart';
+import 'package:testingui/modules/Tab_Host.dart';
 import 'package:testingui/modules/Web_View.dart';
 
 class homePage extends StatelessWidget {
@@ -98,6 +100,26 @@ class homePage extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => FirebaseAuthPage()));
+                },
+              ),
+            ),
+            Card(
+              color: Colors.grey,
+              child: ListTile(
+                title: customtext2("TabHost"),
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) => TabHost()));
+                },
+              ),
+            ),
+            Card(
+              color: Colors.grey,
+              child: ListTile(
+                title: customtext2("Notification"),
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => NotificationPage()));
                 },
               ),
             ),
