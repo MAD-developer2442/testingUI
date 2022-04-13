@@ -8,6 +8,7 @@ import 'package:testingui/modules/Image_Picker.dart';
 import 'package:testingui/modules/List_View.dart';
 import 'package:testingui/modules/List_View_Builder.dart';
 import 'package:testingui/modules/Notification.dart';
+import 'package:testingui/modules/Set_State.dart';
 import 'package:testingui/modules/Tab_Host.dart';
 import 'package:testingui/modules/Web_View.dart';
 
@@ -120,6 +121,16 @@ class homePage extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => NotificationPage()));
+                },
+              ),
+            ),
+            Card(
+              color: Colors.grey,
+              child: ListTile(
+                title: customtext2("Set State"),
+                onTap: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => SetStatePage()));
                 },
               ),
             ),
