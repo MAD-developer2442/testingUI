@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:testingui/Widget.dart';
 
 class SetStatePage extends StatefulWidget {
+  const SetStatePage({Key? key}) : super(key: key);
+
   @override
   _SetStatePageState createState() => _SetStatePageState();
 }
@@ -10,7 +11,6 @@ bool _showcontainerblue = false;
 bool _showcontainerred = false;
 
 bool _showcontainerblack = false;
-
 
 class _SetStatePageState extends State<SetStatePage> {
   @override
@@ -33,7 +33,9 @@ class _SetStatePageState extends State<SetStatePage> {
                     child: IconButton(
                       onPressed: () {
                         setState(() {
-                          _showcontainerblue = !_showcontainerblue;
+                          _showcontainerblue = true;
+                          _showcontainerblack = false;
+                          _showcontainerred = false;
                         });
                       },
                       icon: const Icon(Icons.add),
@@ -48,8 +50,9 @@ class _SetStatePageState extends State<SetStatePage> {
                     child: IconButton(
                       onPressed: () {
                         setState(() {
-                          _showcontainerblack = !_showcontainerblack;
-
+                          _showcontainerblue = false;
+                          _showcontainerblack = true;
+                          _showcontainerred = false;
                         });
                       },
                       icon: const Icon(Icons.add),
@@ -64,8 +67,9 @@ class _SetStatePageState extends State<SetStatePage> {
                     child: IconButton(
                       onPressed: () {
                         setState(() {
-                          _showcontainerred = !_showcontainerred;
-
+                          _showcontainerblue = false;
+                          _showcontainerblack = false;
+                          _showcontainerred = true;
                         });
                       },
                       icon: const Icon(Icons.add),
@@ -75,27 +79,20 @@ class _SetStatePageState extends State<SetStatePage> {
               ],
             ),
             Visibility(
-              child: Container(
-                child: customtext1("Blue"),
-              ),
+              child: const Icon(Icons.cake_rounded, size: 100),
               visible: _showcontainerblue,
             ),
             Visibility(
-              child: Container(
-                child: customtext1("Black"),
-              ),
+              child: const Icon(Icons.star_border, size: 100),
               visible: _showcontainerblack,
             ),
             Visibility(
-              child: Container(
-                child: customtext1("Red"),
-              ),
+              child: const Icon(Icons.home_filled, size: 100),
               visible: _showcontainerred,
             ),
           ],
         ),
       ),
     );
-    ;
   }
 }

@@ -24,8 +24,8 @@ class _NotificationPageState extends State<NotificationPage> {
         child: TextButton(
             onPressed: () {
               NotificationApi.showNotification(
-                title: 'OTP Verification',
-                body: 'OTP is: 123456',
+                title: 'Notification Tutorial',
+                body: 'Gher bhego tha',
                 payload: 'Buddy Expense',
               );
             },
