@@ -9,7 +9,6 @@ class SetStatePage extends StatefulWidget {
 
 bool _showcontainerblue = false;
 bool _showcontainerred = false;
-
 bool _showcontainerblack = false;
 
 class _SetStatePageState extends State<SetStatePage> {

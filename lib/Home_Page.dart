@@ -1,5 +1,7 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:testingui/Widget.dart';
+import 'package:testingui/modules/Camera_callibration.dart';
 import 'package:testingui/modules/Date-Time-Picker.dart';
 import 'package:testingui/modules/Firebase_Auth.dart';
 import 'package:testingui/modules/Get-data.dart';
@@ -23,6 +25,7 @@ class homePage extends StatelessWidget {
       body: SafeArea(
         child: Center(
             child: ListView(
+          physics: BouncingScrollPhysics(),
           children: [
             Card(
               color: Colors.grey,
@@ -134,9 +137,32 @@ class homePage extends StatelessWidget {
                 },
               ),
             ),
+            Card(
+              color: Colors.grey,
+              child: ListTile(
+                title: customtext2("Camera"),
+                onTap: () async {
+                  WidgetsFlutterBinding.ensureInitialized();
+                  // Obtain a list of the available cameras on the device.
+                  final cameras = await availableCameras();
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => CameraScreen(cameras: cameras)));
+                },
+              ),
+            ),
+            Card(
+              color: Colors.grey,
+              child: ListTile(
+                title: customtext2("Set State"),
+                onTap: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => SetStatePage()));
+                },
+              ),
+            ),
           ],
         )),
       ),
     );
   }
+
 }
