@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:testingui/modules/Gallery.dart';
+import 'package:testingui/modules-functions/Gallery.dart';
 
 
 class CameraScreen extends StatefulWidget {

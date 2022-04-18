@@ -23,6 +23,9 @@ dependencies:
   camera:
   path_provider:
   path:
+  local_auth:
+  carousel_slider:
+  lottie:
 
 dev_dependencies:
   flutter_test:
