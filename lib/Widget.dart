@@ -17,8 +17,18 @@ Widget customtext2(String txt) {
     ),
   );
 }
+Widget customtext2_1(String txt) {
+  return Text(
+    txt,
+    textAlign: TextAlign.center,
+    style: const TextStyle(
+      color: Colors.white,
+      fontSize: 15,
+    ),
+  );
+}
 
-Widget customtext3(String txt) {
+Widget customtext1_1(String txt) {
   return Text(
     txt,
     style: const TextStyle(

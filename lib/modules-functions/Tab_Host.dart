@@ -64,7 +64,7 @@ class _TabHostState extends State<TabHost> {
                       child: ListTile(
                         title: customtext1("Settings"),
                         leading: CircleAvatar(child: Icon(Icons.person)),
-                        subtitle: customtext3("$index \nHello World"),
+                        subtitle: customtext1_1("$index \nHello World"),
                         trailing: Icon(Icons.arrow_forward_ios),
                       )),
                 );

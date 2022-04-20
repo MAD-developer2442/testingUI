@@ -12,27 +12,31 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home Page'),
+        title: const Text('Home Page'),
       ),
       body: Center(
         child: GridView.count(
           crossAxisCount: 2,
           children: <Widget>[
             Card(
-              margin: EdgeInsets.all(30),
+              elevation: 5,
+              margin: const EdgeInsets.all(30),
               child: InkWell(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => ModuleFunctions()));
+                      builder: (context) => const ModuleFunctions()));
                 },
                 child: Image.asset('images/Functions.png'),
               ),
             ),
             Card(
-              margin: EdgeInsets.all(30),
+              elevation: 5,
+              margin: const EdgeInsets.all(30),
               child: InkWell(
-                onTap: () {Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => ModuleDesigns()));},
+                onTap: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => const ModuleDesigns()));
+                },
                 child: Image.asset('images/Designs.png'),
               ),
             ),
