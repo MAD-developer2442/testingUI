@@ -1,7 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:testingui/Widget.dart';
 
 class HomePageDesign extends StatefulWidget {
@@ -32,13 +31,14 @@ class _HomePageDesignState extends State<HomePageDesign> {
             scrollDirection: Axis.vertical,
             children: <Widget>[
               CardDesign(),
-              Lottie.asset(
-                'images/lottie_file.json',
-                repeat: true,
-                reverse: true,
-                animate: true,
-              ),
-              buildSlider2()
+              // Lottie.asset(
+              //   'images/lottie_file.json',
+              //   repeat: true,
+              //   reverse: true,
+              //   animate: true,
+              // ),
+              buildSlider2(),
+              customtext2("Welcome to the Home Page"),
             ],
           ),
         ),
@@ -94,7 +94,8 @@ class _HomePageDesignState extends State<HomePageDesign> {
         )),
         child: Padding(
           padding: const EdgeInsets.all(10),
-          child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -111,7 +112,11 @@ class _HomePageDesignState extends State<HomePageDesign> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Image.asset('images/mastercard.png',width: 50,height: 50,),
+                  Image.asset(
+                    'images/mastercard.png',
+                    width: 50,
+                    height: 50,
+                  ),
                   customtext2_1("Dhruman Rathod")
                 ],
               )
