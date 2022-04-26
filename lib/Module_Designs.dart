@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:testingui/Widget.dart';
-import 'package:testingui/modules-designs/Aeroplane/Home-Page.dart';
-import 'package:testingui/modules-designs/Aeroplane/Intro-Page.dart';
+import 'package:testingui/modules-designs/Valorant/Valorant-Page-Design.dart';
+import 'package:testingui/modules-designs/Valorant/Intro-Page.dart';
 
 class ModuleDesigns extends StatelessWidget {
   const ModuleDesigns({Key? key}) : super(key: key);
@@ -23,19 +23,18 @@ class ModuleDesigns extends StatelessWidget {
               child: ListTile(
                 title: customtext2("Aeroplane"),
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => IntroPage()));
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => IntroPage()));
                 },
               ),
             ),
-
             Card(
               color: Colors.grey,
               child: ListTile(
                 title: customtext2("Home Page Designs"),
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => HomePageDesign()));
+                      builder: (context) => ValorantPageDesign()));
                 },
               ),
             ),

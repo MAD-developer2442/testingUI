@@ -28,6 +28,7 @@ dependencies:
   lottie:
   google_fonts:
   custom_fade_animation:
+  curved_navigation_bar:
 
 dev_dependencies:
   flutter_test:
@@ -41,3 +42,4 @@ flutter:
   assets:
     - images/
     - images/Plane/
+    - images/Agents/

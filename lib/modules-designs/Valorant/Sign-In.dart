@@ -1,6 +1,7 @@
 import 'package:custom_fade_animation/custom_fade_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:testingui/Widget.dart';
+import 'package:testingui/modules-designs/Valorant/Valorant-Page-Design.dart';
 
 class SignIn extends StatefulWidget {
   @override
@@ -39,8 +40,10 @@ class _SignInState extends State<SignIn> {
 
   Widget ButtonSignup() {
     return RaisedButton(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
       onPressed: () {
+        Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => ValorantPageDesign()));
         setState(() {});
       },
       color: Colors.deepPurple,
@@ -48,6 +51,24 @@ class _SignInState extends State<SignIn> {
         borderRadius: BorderRadius.circular(10.0),
       ),
       child: customtext2_3('Signup'),
+    );
+  }
+
+  Widget ButtonLogin() {
+    return RaisedButton(
+      padding: const EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
+      onPressed: () {
+        Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => ValorantPageDesign()));
+        setState(() {
+          _showContainerLogin = !_showContainerLogin;
+        });
+      },
+      color: Colors.deepPurple,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      child: customtext2_3('Login'),
     );
   }
 
@@ -75,23 +96,6 @@ class _SignInState extends State<SignIn> {
     );
   }
 
-
-  Widget ButtonLogin() {
-    return RaisedButton(
-      padding: const EdgeInsets.all(10),
-      onPressed: () {
-        setState(() {
-          _showContainerLogin = !_showContainerLogin;
-        });
-      },
-      color: Colors.deepPurple,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-      child: customtext2_3('Login'),
-    );
-  }
-
   Widget buildSignup() {
     return FadeAnimation(
       1,
@@ -106,7 +110,7 @@ class _SignInState extends State<SignIn> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                width: MediaQuery.of(context).size.width *0.44,
+                width: MediaQuery.of(context).size.width * 0.44,
                 child: TextField1(
                     "First Name",
                     "Enter your first name",
@@ -117,7 +121,7 @@ class _SignInState extends State<SignIn> {
                     )),
               ),
               Container(
-                width: MediaQuery.of(context).size.width *0.44,
+                width: MediaQuery.of(context).size.width * 0.44,
                 child: TextField1(
                     "Last Name",
                     "Enter your Last Name",
@@ -129,8 +133,7 @@ class _SignInState extends State<SignIn> {
               )
             ],
           ),
-          Spacer(),
-
+          Space(),
           TextField1(
               "Email id",
               "Enter your email id",
@@ -139,8 +142,7 @@ class _SignInState extends State<SignIn> {
                 Icons.email,
                 color: Colors.white,
               )),
-          Spacer(),
-
+          Space(),
           TextField1(
               "Password",
               "Enter your password",
@@ -149,8 +151,7 @@ class _SignInState extends State<SignIn> {
                 Icons.lock,
                 color: Colors.white,
               )),
-          Spacer(),
-
+          Space(),
           TextField1(
               "Phone Number",
               "Enter your phone number",
@@ -159,8 +160,7 @@ class _SignInState extends State<SignIn> {
                 Icons.phone,
                 color: Colors.white,
               )),
-          Spacer(),
-
+          Space(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [ButtonSignup(), TextButtonToLogin()],
@@ -177,8 +177,7 @@ class _SignInState extends State<SignIn> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           customtext2_2("Login"),
-          Spacer(),
-
+          Space(),
           TextField1(
               "Email id",
               "Enter your email id",
@@ -187,7 +186,7 @@ class _SignInState extends State<SignIn> {
                 Icons.email,
                 color: Colors.white,
               )),
-          Spacer(),
+          Space(),
           TextField1(
               "Password",
               "Enter your password",
@@ -196,7 +195,7 @@ class _SignInState extends State<SignIn> {
                 Icons.lock,
                 color: Colors.white,
               )),
-          Spacer(),
+          Space(),
           TextField1(
               "Phone Number",
               "Enter your phone number",
@@ -205,7 +204,7 @@ class _SignInState extends State<SignIn> {
                 Icons.phone,
                 color: Colors.white,
               )),
-          Spacer(),
+          Space(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [ButtonLogin(), TextButtonToSignup()],
@@ -214,9 +213,6 @@ class _SignInState extends State<SignIn> {
       ),
     );
   }
-  Widget Spacer(){
-    return SizedBox(
-      height: 22,
-    );
-  }
+
+
 }
