@@ -29,7 +29,7 @@ dependencies:
   google_fonts:
   custom_fade_animation:
   curved_navigation_bar:
-
+  http:
 dev_dependencies:
   flutter_test:
     sdk: flutter

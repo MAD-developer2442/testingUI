@@ -2,7 +2,11 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:custom_fade_animation/custom_fade_animation.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:testingui/Controller/ValorantNews_Controller.dart';
+import 'package:testingui/Home_Page.dart';
 import 'package:testingui/Widget.dart';
+import 'package:testingui/modules-designs/Valorant/News/News-tile.dart';
 
 class ValorantPageDesign extends StatefulWidget {
   @override
@@ -107,6 +111,15 @@ List<String> AgentVoices = [
 int _currentIndex = 0;
 
 class _HomePageDesignState extends State<ValorantPageDesign> {
+  final NewsController movieController = Get.put(NewsController());
+
+  @override
+  void initState() {
+    movieController.loading = true;
+    movieController.fecthnews();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -114,6 +127,7 @@ class _HomePageDesignState extends State<ValorantPageDesign> {
       backgroundColor: Colors.black12,
       body: SafeArea(
           child: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
             Visibility(
@@ -128,120 +142,116 @@ class _HomePageDesignState extends State<ValorantPageDesign> {
   }
 
   Widget AgentsContainer() {
-    return Column(
-      children: <Widget>[
-        Image.asset(
-          "images/Plane/Valorantlogo.png",
-          height: 120,
-          width: 120,
-        ),
-        customtitle("Choose your awesome Agent"),
-        // Lottie.asset(
-        //   'images/lottie_file.json',
-        //   repeat: true,
-        //   reverse: true,
-        //   animate: true,
-        // ),
-        Space(),
-        buildSlider2(),
-        Container(
-          padding: const EdgeInsets.all(20),
-          child: customtext1("Agent Roles"),
-        ),
-        GridAgentTiles()
-      ],
-    );
-  }
-
-  Widget NewsContainer() {
-    return customtext1("Hello World");
-  }
-
-  Widget buildSlider2() {
     return FadeAnimation(
         1,
-        CarouselSlider(
-          items: [
-            customlisttile(
-                AgentName[0], AgentVoices[0], CardColor[0], Images[0]),
-            customlisttile(
-                AgentName[1], AgentVoices[1], CardColor[1], Images[1]),
-            customlisttile(
-                AgentName[2], AgentVoices[2], CardColor[2], Images[2]),
-            customlisttile(
-                AgentName[3], AgentVoices[3], CardColor[3], Images[3]),
-            customlisttile(
-                AgentName[4], AgentVoices[4], CardColor[4], Images[4]),
-            customlisttile(
-                AgentName[5], AgentVoices[5], CardColor[5], Images[5]),
-            customlisttile(
-                AgentName[6], AgentVoices[6], CardColor[6], Images[6]),
-            customlisttile(
-                AgentName[7], AgentVoices[7], CardColor[7], Images[7]),
-            customlisttile(
-                AgentName[8], AgentVoices[8], CardColor[8], Images[8]),
-            customlisttile(
-                AgentName[9], AgentVoices[9], CardColor[9], Images[9]),
-            customlisttile(
-                AgentName[10], AgentVoices[10], CardColor[10], Images[10]),
-            customlisttile(
-                AgentName[11], AgentVoices[11], CardColor[11], Images[11]),
-            customlisttile(
-                AgentName[12], AgentVoices[12], CardColor[12], Images[12]),
-            customlisttile(
-                AgentName[13], AgentVoices[13], CardColor[13], Images[13]),
-            customlisttile(
-                AgentName[14], AgentVoices[14], CardColor[14], Images[14]),
-            customlisttile(
-                AgentName[15], AgentVoices[15], CardColor[15], Images[15]),
-            customlisttile(
-                AgentName[16], AgentVoices[16], CardColor[16], Images[16]),
-            customlisttile(
-                AgentName[17], AgentVoices[17], CardColor[17], Images[17]),
+        Column(
+          children: <Widget>[
+            Image.asset(
+              "images/Plane/Valorantlogo.png",
+              height: 120,
+              width: 120,
+            ),
+            customtitle("Choose your awesome Agent"),
+            // Lottie.asset(
+            //   'images/lottie_file.json',
+            //   repeat: true,
+            //   reverse: true,
+            //   animate: true,
+            // ),
+            Space(),
+            buildSlider2(),
+            Container(
+              padding: const EdgeInsets.only(bottom: 20),
+              child: customtitle("Agent Roles"),
+            ),
+            GridAgentTiles()
           ],
-
-          //Slider Container properties
-          options: CarouselOptions(
-            enlargeCenterPage: true,
-            pageSnapping: true,
-            pauseAutoPlayOnTouch: true,
-            scrollPhysics: const BouncingScrollPhysics(),
-            autoPlay: true,
-            aspectRatio: 16 / 12,
-            autoPlayCurve: Curves.ease,
-            enableInfiniteScroll: true,
-            autoPlayAnimationDuration: const Duration(milliseconds: 1000),
-            viewportFraction: 0.6,
-          ),
         ));
   }
 
-  Widget GridAgentTiles() {
-    return FadeAnimation(
-      1,
-      ListView(
-        shrinkWrap: true,
-        children: [
-          customgridtile(AvatarRoles[0], FeatureImages[0], CardColor[0]),
-          customgridtile(AvatarRoles[1], FeatureImages[1], CardColor[1]),
-          customgridtile(AvatarRoles[2], FeatureImages[2], CardColor[2]),
-          customgridtile(AvatarRoles[3], FeatureImages[3], CardColor[3]),
-        ],
+  Widget NewsContainer() {
+    return FadeAnimation(2, GetBuilder(
+      builder: (NewsController controller) {
+        return (controller.loading)
+            ? Container()
+            : Expanded(
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  physics: const BouncingScrollPhysics(),
+                  itemCount: controller.newsList.length,
+                  itemBuilder: (context, index) {
+                    return NewsTile(movieController.newsList[index]);
+                  },
+                ),
+              );
+      },
+    ));
+  }
+
+  Widget buildSlider2() {
+    return CarouselSlider(
+      items: [
+        customlisttile(AgentName[0], CardColor[0], Images[0]),
+        customlisttile(AgentName[1], CardColor[1], Images[1]),
+        customlisttile(AgentName[2], CardColor[2], Images[2]),
+        customlisttile(AgentName[3], CardColor[3], Images[3]),
+        customlisttile(AgentName[4], CardColor[4], Images[4]),
+        customlisttile(AgentName[5], CardColor[5], Images[5]),
+        customlisttile(AgentName[6], CardColor[6], Images[6]),
+        customlisttile(AgentName[7], CardColor[7], Images[7]),
+        customlisttile(AgentName[8], CardColor[8], Images[8]),
+        customlisttile(AgentName[9], CardColor[9], Images[9]),
+        customlisttile(AgentName[10], CardColor[10], Images[10]),
+        customlisttile(AgentName[11], CardColor[11], Images[11]),
+        customlisttile(AgentName[12], CardColor[12], Images[12]),
+        customlisttile(AgentName[13], CardColor[13], Images[13]),
+        customlisttile(AgentName[14], CardColor[14], Images[14]),
+        customlisttile(AgentName[15], CardColor[15], Images[15]),
+        customlisttile(AgentName[16], CardColor[16], Images[16]),
+        customlisttile(AgentName[17], CardColor[17], Images[17]),
+      ],
+
+      //Slider Container properties
+      options: CarouselOptions(
+        enlargeCenterPage: true,
+        pageSnapping: true,
+        pauseAutoPlayOnTouch: true,
+        scrollPhysics: const BouncingScrollPhysics(),
+        autoPlay: true,
+        aspectRatio:16 / 14,
+        autoPlayCurve: Curves.ease,
+        enableInfiniteScroll: true,
+        autoPlayAnimationDuration: const Duration(milliseconds: 1000),
+        viewportFraction: 0.6,
       ),
+    );
+  }
+
+  Widget GridAgentTiles() {
+    return Column(
+      children: [
+        customgridtile(AvatarRoles[0], FeatureImages[0], CardColor[0], () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => HomePage()));
+        }),
+        customgridtile(AvatarRoles[1], FeatureImages[1], CardColor[1], () {}),
+        customgridtile(AvatarRoles[2], FeatureImages[2], CardColor[2], () {}),
+        customgridtile(AvatarRoles[3], FeatureImages[3], CardColor[3], () {}),
+      ],
     );
   }
 
   Widget bottomNavBar() {
     return CurvedNavigationBar(
       items: const <Widget>[
-        Icon(Icons.segment, size: 40, color: Colors.deepPurpleAccent),
-        Icon(Icons.newspaper, size: 40, color: Colors.deepPurpleAccent),
+        Icon(Icons.segment, size: 35, color: Colors.deepPurpleAccent),
+        Icon(Icons.newspaper, size: 35, color: Colors.deepPurpleAccent),
       ],
+      height: 55,
       color: Colors.grey.shade900,
-      buttonBackgroundColor: Colors.grey.shade900,
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.transparent,
       animationCurve: Curves.easeInOut,
-      animationDuration: Duration(milliseconds: 600),
+      animationDuration: const Duration(milliseconds: 600),
       onTap: (value) {
         setState(() {
           setState(() {
