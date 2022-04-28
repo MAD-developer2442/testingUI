@@ -5,7 +5,7 @@ Widget customtitle(String txt) {
   return Text(
     txt,
     textAlign: TextAlign.center,
-    style: GoogleFonts.permanentMarker(
+    style: GoogleFonts.righteous(
       textStyle: const TextStyle(
         fontSize: 30,
         color: Colors.white,
@@ -17,7 +17,7 @@ Widget customtitle(String txt) {
 Widget customtext1(String txt) {
   return Text(
     txt,
-    style: GoogleFonts.notoSans(
+    style: GoogleFonts.righteous(
         fontSize: 30, fontWeight: FontWeight.bold, color: Colors.white),
   );
 }
@@ -47,17 +47,18 @@ Widget customtext2(String txt) {
   return Text(
     txt,
     textAlign: TextAlign.center,
-    style: GoogleFonts.baloo(
+    style: GoogleFonts.righteous(
       color: Colors.white,
-      fontSize: 35,
+      fontSize: 30,
     ),
   );
 }
 
 Widget customtext2_1(String txt) {
   return Text(
-    txt,textAlign: TextAlign.center,
-    style: GoogleFonts.permanentMarker(
+    txt,
+    textAlign: TextAlign.center,
+    style: GoogleFonts.righteous(
       color: Colors.white,
       fontSize: 25,
     ),
@@ -123,11 +124,15 @@ Widget customlisttile(String title, Color colors, AssetImage images) {
   return Column(
     children: [
       Card(
+        elevation: 10,
+        shadowColor: Colors.grey.shade900,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         color: colors.withOpacity(0.5),
-        child: Container(width: 200,
+        child: Container(
+          clipBehavior: Clip.hardEdge,
+          width: 200,
           margin: const EdgeInsets.all(10),
-          padding: const EdgeInsets.only(top:200),
+          padding: const EdgeInsets.only(top: 200),
           decoration: BoxDecoration(
             image: DecorationImage(
               alignment: Alignment.center,
@@ -140,6 +145,21 @@ Widget customlisttile(String title, Color colors, AssetImage images) {
         ),
       ),
     ],
+  );
+}
+
+Widget customgamelisttile(Color colors, String images, VoidCallback onpress) {
+  return GestureDetector(
+    onTap: onpress,
+    child: Card(
+      clipBehavior: Clip.hardEdge,
+      elevation: 10,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      color: Colors.black,
+      child: Container(
+        child: Image.asset(images),
+      ),
+    ),
   );
 }
 
@@ -228,17 +248,18 @@ Widget customgridtile(
               begin: Alignment.topRight,
               end: Alignment.bottomLeft,
               colors: [
-                Colors.purple.shade900,
+                Colors.grey.shade900,
                 Colors.black,
               ],
             )),
         child: ListTile(
-          contentPadding: const EdgeInsets.all(20),
           title: customtext2(title),
           leading: Image(
+            height: 40,
             image: images,
           ),
           trailing: Image(
+            height: 40,
             image: images,
           ),
         ),

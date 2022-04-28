@@ -22,6 +22,7 @@ List<AssetImage> Images = [
   const AssetImage("images/Agents/Brimestone.png"),
   const AssetImage("images/Agents/Chamber.png"),
   const AssetImage("images/Agents/Cypher.png"),
+  const AssetImage("images/Agents/Fade.png"),
   const AssetImage("images/Agents/Jett.png"),
   const AssetImage("images/Agents/Kayo.png"),
   const AssetImage("images/Agents/Killjoy.png"),
@@ -47,7 +48,7 @@ List<Color> CardColor = [
   Colors.green.shade700,
   Colors.brown.shade700,
   Colors.grey.shade700,
-  Colors.black54,
+  Colors.white,
   Colors.cyan.shade700,
   Colors.lightBlue.shade700,
   Colors.yellow.shade700,
@@ -68,8 +69,9 @@ List<String> AgentName = [
   "Brimestone",
   "Chamber",
   "Cypher",
+  "Fade",
   "Jett",
-  "Kayo",
+  "Kay/O",
   "Killjoy",
   "Neon",
   "Omen",
@@ -94,6 +96,7 @@ List<String> AgentVoices = [
   '"They think I am an old dog? Heh, I will show them just how many tricks I know."',
   '"You have good taste, my friend."',
   '"Nothing stays hidden from me. Nothing."',
+  "Everyone is afraid of something.",
   '"Cool. Lets go."',
   '"Lets do this."',
   '"Relax, I have already thought of everything."',
@@ -126,18 +129,28 @@ class _HomePageDesignState extends State<ValorantPageDesign> {
       bottomNavigationBar: bottomNavBar(),
       backgroundColor: Colors.black12,
       body: SafeArea(
-          child: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        child: Column(
-          children: [
-            Visibility(
-              visible: _showAgentsContainer,
-              child: AgentsContainer(),
-            ),
-            Visibility(visible: _showNewsContainer, child: NewsContainer()),
-          ],
-        ),
-      )),
+        child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Container(
+              // decoration: BoxDecoration(
+              //     image: DecorationImage(
+              //         image: AssetImage("images/Plane/img_6.png"),
+              //         fit: BoxFit.fill,
+              //     opacity: 0.5
+              //     )
+              //     ),
+              child: Column(
+                children: [
+                  Visibility(
+                    visible: _showAgentsContainer,
+                    child: AgentsContainer(),
+                  ),
+                  Visibility(
+                      visible: _showNewsContainer, child: NewsContainer()),
+                ],
+              ),
+            )),
+      ),
     );
   }
 
@@ -151,7 +164,7 @@ class _HomePageDesignState extends State<ValorantPageDesign> {
               height: 120,
               width: 120,
             ),
-            customtitle("Choose your awesome Agent"),
+            customtitle("Choose your Agent"),
             // Lottie.asset(
             //   'images/lottie_file.json',
             //   repeat: true,
@@ -214,15 +227,15 @@ class _HomePageDesignState extends State<ValorantPageDesign> {
       //Slider Container properties
       options: CarouselOptions(
         enlargeCenterPage: true,
-        pageSnapping: true,
         pauseAutoPlayOnTouch: true,
         scrollPhysics: const BouncingScrollPhysics(),
         autoPlay: true,
-        aspectRatio:16 / 14,
+        aspectRatio: 16/12,
         autoPlayCurve: Curves.ease,
         enableInfiniteScroll: true,
         autoPlayAnimationDuration: const Duration(milliseconds: 1000),
         viewportFraction: 0.6,
+        disableCenter: true,pageSnapping: false,
       ),
     );
   }

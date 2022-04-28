@@ -1,6 +1,7 @@
 import 'package:custom_fade_animation/custom_fade_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:testingui/Widget.dart';
+import 'package:testingui/modules-designs/Valorant/Games.dart';
 import 'package:testingui/modules-designs/Valorant/Valorant-Page-Design.dart';
 
 class SignIn extends StatefulWidget {
@@ -43,7 +44,7 @@ class _SignInState extends State<SignIn> {
       padding: const EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
       onPressed: () {
         Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => ValorantPageDesign()));
+            MaterialPageRoute(builder: (context) => GamePage()));
         setState(() {});
       },
       color: Colors.deepPurple,
@@ -59,7 +60,7 @@ class _SignInState extends State<SignIn> {
       padding: const EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
       onPressed: () {
         Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => ValorantPageDesign()));
+            MaterialPageRoute(builder: (context) => GamePage()));
         setState(() {
           _showContainerLogin = !_showContainerLogin;
         });
