@@ -25,14 +25,14 @@ Widget customtext1(String txt) {
 Widget customtext1_1(String txt) {
   return Text(
     txt,
-    style: GoogleFonts.notoSans(fontSize: 25, color: Colors.white),
+    style: GoogleFonts.righteous(fontSize: 25, color: Colors.white),
   );
 }
 
 Widget customtext1_2(String txt) {
   return Text(
     txt,
-    style: GoogleFonts.notoSans(fontSize: 23, color: Colors.white),
+    style: GoogleFonts.righteous(fontSize: 23, color: Colors.white),
   );
 }
 
@@ -47,7 +47,7 @@ Widget customtext2(String txt) {
   return Text(
     txt,
     textAlign: TextAlign.center,
-    style: GoogleFonts.righteous(
+    style: GoogleFonts.baloo(
       color: Colors.white,
       fontSize: 30,
     ),
@@ -58,7 +58,7 @@ Widget customtext2_1(String txt) {
   return Text(
     txt,
     textAlign: TextAlign.center,
-    style: GoogleFonts.righteous(
+    style: GoogleFonts.baloo(
       color: Colors.white,
       fontSize: 25,
     ),
@@ -80,7 +80,7 @@ Widget customtext2_3(String txt) {
   return Text(
     txt,
     textAlign: TextAlign.center,
-    style: GoogleFonts.robotoSlab(
+    style: GoogleFonts.baloo(
       color: Colors.white,
       fontSize: 20,
     ),
@@ -151,13 +151,27 @@ Widget customlisttile(String title, Color colors, AssetImage images) {
 Widget customgamelisttile(Color colors, String images, VoidCallback onpress) {
   return GestureDetector(
     onTap: onpress,
-    child: Card(
-      clipBehavior: Clip.hardEdge,
-      elevation: 10,
+    child: Card(shadowColor: Colors.grey.shade400,
+      margin: const EdgeInsets.all(15),
+      elevation: 5,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      color: Colors.black,
+      color: Colors.grey.shade500.withOpacity(0.2),
       child: Container(
-        child: Image.asset(images),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            gradient: LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              colors: [                Colors.lightBlue,
+
+                Colors.pink.shade900,
+              ],
+            )),
+        child: Image.asset(
+          images,
+          height: 50,
+          width: 50,
+        ),
       ),
     ),
   );
@@ -166,10 +180,12 @@ Widget customgamelisttile(Color colors, String images, VoidCallback onpress) {
 Widget customnewstile(String title, Color colors, NetworkImage images) {
   return Card(
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-    color: colors,
+    shadowColor: Colors.grey.shade500,
+    elevation: 5,
     child: Container(
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
         image: DecorationImage(
           fit: BoxFit.cover,
           alignment: Alignment.center,
@@ -179,6 +195,7 @@ Widget customnewstile(String title, Color colors, NetworkImage images) {
         ),
       ),
       child: ListTile(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         contentPadding: const EdgeInsets.all(20),
         title: customtext2_3(title),
       ),

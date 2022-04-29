@@ -126,6 +126,11 @@ class _HomePageDesignState extends State<ValorantPageDesign> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: customtext2_1("Valorant"),
+        centerTitle: true,
+        backgroundColor: Colors.black,
+      ),
       bottomNavigationBar: bottomNavBar(),
       backgroundColor: Colors.black12,
       body: SafeArea(

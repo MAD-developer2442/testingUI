@@ -26,7 +26,7 @@ class _NewsDetailsState extends State<NewsDetails> {
           widget.news.name,
         ),
       ),
-      body: Column(
+      body: SingleChildScrollView(child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           customNewsDetails(
@@ -35,6 +35,6 @@ class _NewsDetailsState extends State<NewsDetails> {
               widget.news.content),
         ],
       ),
-    );
+    ),);
   }
 }

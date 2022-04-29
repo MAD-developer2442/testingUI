@@ -32,26 +32,9 @@ class NewsTile extends StatelessWidget {
           child: Column(
             children: [
 
-              // customnewstile(news.title, Colors.transparent,
-              //     NetworkImage('${news.urlToImage}')),
+              customnewstile(news.title, Colors.transparent,
+                  NetworkImage('${news.urlToImage}')),
 
-              CarouselSlider(
-                  items: [
-                    customnewstile(news.title, Colors.transparent,
-                        NetworkImage('${news.urlToImage}')),
-                  ],
-                  options: CarouselOptions(
-                    height: 200,
-                    aspectRatio: 16 / 10,
-                    initialPage: 3,
-                    enableInfiniteScroll: false,
-                    autoPlay: true,
-                    autoPlayAnimationDuration: Duration(milliseconds: 800),
-                    disableCenter: true,
-                    viewportFraction: 0.9,
-                    enlargeCenterPage: true,
-                    scrollDirection: Axis.vertical,
-                  ))
             ],
           ),
         ),

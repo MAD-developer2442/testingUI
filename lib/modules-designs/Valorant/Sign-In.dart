@@ -62,7 +62,7 @@ class _SignInState extends State<SignIn> {
         Navigator.of(context).push(
             MaterialPageRoute(builder: (context) => GamePage()));
         setState(() {
-          _showContainerLogin = !_showContainerLogin;
+
         });
       },
       color: Colors.deepPurple,
